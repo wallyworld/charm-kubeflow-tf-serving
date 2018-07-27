@@ -1,0 +1,24 @@
+name: kubeflow-tf-serving
+summary: TensorFlow Serving for KubeFlow
+maintainers:
+  - Juju Developers <juju@lists.ubuntu.com>
+description: |
+  This charm deploys TensorFlow Serving configured for use with
+  Kubeflow to Kubernetes models in Juju.
+tags:
+  - machine-learning
+  - ai
+  - bigdata
+  - kubeflow
+  - tensorflow
+series:
+  - kubernetes
+resources:
+  tf-serving-image:
+    type: docker
+    description: 'Image for tensorflow-serving'
+  model:
+    type: file
+    description: |
+      Model to serve. This can also be provided via the 'model-path'
+      config option, but the resource will be preferred over the option.

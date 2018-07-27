@@ -1,0 +1,7 @@
+options:
+  model:
+    type: string
+    default: ''
+    description: |
+      Model to serve.  The model can also be provided directly
+      as a resource, which will be preferred over this option.
