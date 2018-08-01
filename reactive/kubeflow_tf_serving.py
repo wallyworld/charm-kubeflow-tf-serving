@@ -10,11 +10,6 @@ from charms.reactive import data_changed
 from charms import layer
 
 
-@when_not('layer.docker-resource.tf-serving-image.fetched')
-def fetch_image():
-    layer.docker_resource.fetch('tf-serving-image')
-
-
 @when('config.changed.model-path')
 def update_model_path():
     clear_flag('charm.kubeflow-tf-serving.has-model')
@@ -39,7 +34,7 @@ def get_model():
         unitdata.kv().unset('charm.kubeflow-tf-serving.model')
 
 
-@when('layer.docker-resource.tf-serving-image.fetched')
+@when('layer.docker-resource.tf-serving-image.available')
 @when('charm.kubeflow-tf-serving.has-model')
 @when_not('charm.kubeflow-tf-serving.started')
 def start_charm():

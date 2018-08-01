@@ -17,6 +17,7 @@ resources:
   tf-serving-image:
     type: docker
     description: 'Image for tensorflow-serving'
+    auto-fetch: true
   # TODO: Support model resource.  The SavedModel format is actually a
   #       directory, so we would need to request it as a tarball or such
   #       and then unzip it and read all the files in manually, or possibly
