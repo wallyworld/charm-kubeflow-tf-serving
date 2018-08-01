@@ -17,8 +17,13 @@ resources:
   tf-serving-image:
     type: docker
     description: 'Image for tensorflow-serving'
-  model:
-    type: file
-    description: |
-      Model to serve. This can also be provided via the 'model-path'
-      config option, but the resource will be preferred over the option.
+  # TODO: Support model resource.  The SavedModel format is actually a
+  #       directory, so we would need to request it as a tarball or such
+  #       and then unzip it and read all the files in manually, or possibly
+  #       do something fancy with storage.
+  #model:
+  #  type: file
+  #  filename: model
+  #  description: |
+  #    Model to serve. This can also be provided via the 'model-path'
+  #    config option, but the resource will be preferred over the option.

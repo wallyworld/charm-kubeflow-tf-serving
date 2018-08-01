@@ -23,7 +23,8 @@ def update_model_path():
 @when_not('charm.kubeflow-tf-serving.has-model')
 def get_model():
     is_resource = True
-    model = layer.kubeflow_tf_serving.get_model_from_resource()
+    model = None
+    # model = layer.kubeflow_tf_serving.get_model_from_resource()
     if not model:
         is_resource = False
         model = layer.kubeflow_tf_serving.get_model_from_config()
