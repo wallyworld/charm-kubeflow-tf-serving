@@ -10,9 +10,14 @@ from charms.reactive import data_changed
 from charms import layer
 
 
-@when('config.changed.model-path')
-def update_model_path():
+@when('config.changed.model')
+def update_model():
     clear_flag('charm.kubeflow-tf-serving.has-model')
+
+
+@when('layer.docker-resource.tf-serving-image.changed')
+def update_image():
+    clear_flag('charm.kubeflow-tf-serving.started')
 
 
 @when_not('charm.kubeflow-tf-serving.has-model')
